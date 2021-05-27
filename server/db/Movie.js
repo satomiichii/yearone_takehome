@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../database');
+const db = require('./database');
 
 const Movie = db.define('movie', {
   movieTitle: {
@@ -13,7 +13,7 @@ const Movie = db.define('movie', {
     type: Sequelize.INTEGER,
     defaultValue: 0,
   },
-  thumsUp: {
+  thumsDown: {
     type: Sequelize.INTEGER,
     defaultValue: 0,
   },
