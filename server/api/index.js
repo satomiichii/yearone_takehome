@@ -3,9 +3,9 @@
 const router = require('express').Router();
 const { Movie } = require('../db');
 
-router.get('/movies', async (req, res, next) => {
+router.get('/movies/:title', async (req, res, next) => {
   try {
-    const title = req.query.title;
+    const title = req.params.movieTitle;
     const movie = await Movie.findOne({
       where: { movieTitle: title },
     });
@@ -15,20 +15,20 @@ router.get('/movies', async (req, res, next) => {
   }
 });
 
-// router.post('/movies', async (req, res, next) => {
-//   try {
-//     const title = req.query.title;
-
-//     const [movie, created] = await Movie.findOrCreate({
-//       where: { movieTitle: title },
-
-//     });
-//     if(created) {
-//         res.json(movie)
-//     } else {
-//         const
-//     }
-//   } catch (error) {}
-// });
+router.post('/movies', async (req, res, next) => {
+  try {
+    const title = req.body.movieTitle;
+    const movie = await Movie.findOne({
+      where: { movieTitle: title },
+    });
+    if (!movie) {
+      const newMovie = await Movie.create(req.body);
+      res.json(newMovie);
+    } else {
+      const updatedMovie = await movie.update(req.body);
+      res.json(updatedMovie);
+    }
+  } catch (error) {}
+});
 
 module.exports = router;
