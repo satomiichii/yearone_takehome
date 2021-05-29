@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { fetchMovies, storeInput } from '../reducer';
+import { Search } from './Search';
+import { MovieList } from './MovieList';
+import SingleMovie from './SingleMovie';
 
 class Home extends React.Component {
   constructor(props) {
@@ -28,6 +31,11 @@ class Home extends React.Component {
     return (
       <Router>
         <div>React Home Component Rendered</div>
+        <div>
+          <Route exact path="/" component={Search} />
+          <Route exact path="/" component={MovieList} />
+          <Route exact path="/movie/:title" component={SingleMovie} />
+        </div>
       </Router>
     );
   }
