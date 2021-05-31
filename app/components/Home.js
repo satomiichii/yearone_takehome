@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { fetchMovies, storeInput } from '../reducer';
 import { Search } from './Search';
 import { MovieList } from './MovieList';
@@ -14,27 +14,32 @@ class Home extends React.Component {
       movies: this.props.movies,
     };
     this.handleUpdate = this.handleUpdate.bind(this);
-    // this.handleSearch = this.handleSearch.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleUpdate(event) {
     this.setState({ input: event.target.value });
   }
 
-  // async handleSearch() {
-  //     //Make API request to Movie API with user input
-  //     this.props.saveInput(this.state.input)
-  //     await this.props.getMovieList(this.state.input)
-  //   }
+  async handleSearch() {
+    //Make API request to Movie API with user input
+    this.props.saveInput(this.state.input);
+    await this.props.getMovieList(this.state.input);
+  }
 
   render() {
     return (
       <Router>
         <div>React Home Component Rendered</div>
         <div>
-          <Route exact path="/" component={Search} />
-          <Route exact path="/" component={MovieList} />
-          <Route exact path="/movie/:title" component={SingleMovie} />
+          <Route exact path="/">
+            <Search
+              handleUpdate={this.handleUpdate}
+              handleSearch={this.handleSearch}
+            />
+            <MovieList state={this.state} />
+          </Route>
+          <Route path="/movie/:title" component={SingleMovie} />
         </div>
       </Router>
     );
