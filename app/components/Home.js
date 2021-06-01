@@ -11,7 +11,7 @@ class Home extends React.Component {
     super(props);
     this.state = {
       input: this.props.input,
-      movies: this.props.movies,
+      page: 1,
     };
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -21,13 +21,17 @@ class Home extends React.Component {
     this.setState({ input: event.target.value });
   }
 
-  async handleSearch() {
+  async handleSearch(event) {
+    event.preventDefault();
     //Make API request to Movie API with user input
     this.props.saveInput(this.state.input);
-    await this.props.getMovieList(this.state.input);
+    await this.props.getMovieList(this.state.input, this.state.page);
+    console.log('After getMovieList: ', this.props.input);
+    console.log(this.props.movies);
   }
 
   render() {
+    console.log(this.props);
     return (
       <Router>
         <div>React Home Component Rendered</div>
@@ -55,7 +59,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    getMovieList: (input) => dispatch(fetchMovies(input)),
+    getMovieList: (input, page) => dispatch(fetchMovies(input, page)),
     saveInput: (input) => dispatch(storeInput(input)),
   };
 };
