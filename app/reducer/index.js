@@ -74,7 +74,6 @@ export const fetchSingleMovie = (id) => {
       };
 
       const { data } = await axios.request(options);
-      console.log('Single Movie', data);
       dispatch(setSingleMovie(data));
     } catch (error) {
       console.log('Error in fetchSingelMovie thunk', error);

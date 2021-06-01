@@ -39,7 +39,7 @@ class Home extends React.Component {
             />
             <MovieList />
           </Route>
-          <Route path="/movie/:title" component={SingleMovie} />
+          <Route path="/movie/:id/:title" component={SingleMovie} />
         </div>
       </Router>
     );

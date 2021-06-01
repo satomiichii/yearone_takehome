@@ -19,13 +19,29 @@ class SingleMovie extends React.Component {
   }
 
   async componentDidMount() {
-    await this.props.getMovieDetail(this.props.movie.id);
-    await this.props.getVoteData(this.props.movie.Title);
+    await this.props.getMovieDetail(this.props.match.params.id);
+    await this.props.getVoteData(this.props.match.params.title);
   }
 
   render() {
+    console.log(this.props);
     const { detail, vote } = this.props;
-    return <div>This is SingleMovie Component</div>;
+    return (
+      <div className="detail-container">
+        <div className="single-image">
+          <img src={detail.Poster} />
+          <div>
+            👍{vote.thumsUp} 👎{vote.thumsDown}
+          </div>
+        </div>
+        <div>
+          <p>{detail.Title}</p>
+          <p>{detail.Director}</p>
+          <p>{detail.Year}</p>
+          <p>{detail.Plot}</p>
+        </div>
+      </div>
+    );
   }
 }
 

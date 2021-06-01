@@ -14,7 +14,9 @@ const MovieList = (props) => {
               <img className="thumnail" src={movie.Poster} />
             </div>
             <div>
-              <Link to={`/movie/${movie.imdbID}`}>{movie.Title}</Link>
+              <Link to={`/movie/${movie.imdbID}/${movie.Title}`}>
+                {movie.Title}
+              </Link>
             </div>
           </div>
         ))}

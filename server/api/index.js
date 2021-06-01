@@ -5,7 +5,7 @@ const { Movie } = require('../db');
 
 router.get('/movies/:title', async (req, res, next) => {
   try {
-    const title = req.params.movieTitle;
+    const title = req.params.title;
     const movie = await Movie.findOne({
       where: { movieTitle: title },
     });

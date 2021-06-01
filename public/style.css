@@ -7,3 +7,14 @@
   width: 75px;
   display: flex;
 }
+
+.detail-container {
+  display: flex;
+}
+
+.single-image {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
