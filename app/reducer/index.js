@@ -56,7 +56,6 @@ export const fetchMovies = (input, page) => {
         headers: HEADERS,
       };
       const { data } = await axios.request(options);
-      console.log('MovieList Data', data);
       dispatch(setMovies(data));
     } catch (error) {
       console.log('Error in fetchMovies thunk', error);

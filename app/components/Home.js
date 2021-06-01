@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { fetchMovies, storeInput } from '../reducer';
 import { Search } from './Search';
-import { MovieList } from './MovieList';
+import MovieList from './MovieList';
 import SingleMovie from './SingleMovie';
 
 class Home extends React.Component {
@@ -23,15 +23,11 @@ class Home extends React.Component {
 
   async handleSearch(event) {
     event.preventDefault();
-    //Make API request to Movie API with user input
-    this.props.saveInput(this.state.input);
+    await this.props.saveInput(this.state.input);
     await this.props.getMovieList(this.state.input, this.state.page);
-    console.log('After getMovieList: ', this.props.input);
-    console.log(this.props.movies);
   }
 
   render() {
-    console.log(this.props);
     return (
       <Router>
         <div>React Home Component Rendered</div>
@@ -41,7 +37,7 @@ class Home extends React.Component {
               handleUpdate={this.handleUpdate}
               handleSearch={this.handleSearch}
             />
-            <MovieList state={this.state} />
+            <MovieList />
           </Route>
           <Route path="/movie/:title" component={SingleMovie} />
         </div>
