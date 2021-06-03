@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchSingleMovie, fetchVote } from '../reducer';
+import { Link } from 'react-router-dom';
+import { fetchSingleMovie, fetchVote, resetData, updateVote } from '../reducer';
 
 class SingleMovie extends React.Component {
   constructor(props) {
@@ -8,13 +9,11 @@ class SingleMovie extends React.Component {
     this.handleVote = this.handleVote.bind(this);
   }
 
-  async handleVote(type) {
+  async handleVote(event) {
+    const type = event.target.name;
     const dataBody = { ...this.props.vote };
-    if (type === 'up') {
-      dataBody.thumsUp++;
-    } else {
-      dataBody.thumsDown++;
-    }
+    dataBody[type] = dataBody[type] + 1;
+    console.log(dataBody);
     await this.props.updateVote(dataBody);
   }
 
@@ -23,15 +22,33 @@ class SingleMovie extends React.Component {
     await this.props.getVoteData(this.props.match.params.title);
   }
 
+  async componentWillUnmount() {
+    this.props.clearState();
+  }
+
   render() {
-    console.log(this.props);
     const { detail, vote } = this.props;
     return (
       <div className="detail-container">
         <div className="single-image">
           <img src={detail.Poster} />
           <div>
-            👍{vote.thumsUp} 👎{vote.thumsDown}
+            <div>
+              <button
+                name="thumsUp"
+                onClick={this.handleVote}
+                className="far fa-thumbs-up"
+              />
+              {vote.thumsUp}
+            </div>
+            <div>
+              <button
+                name="thumsDown"
+                onClick={this.handleVote}
+                className="far fa-thumbs-down"
+              />
+              {vote.thumsDown}
+            </div>
           </div>
         </div>
         <div>
@@ -39,6 +56,9 @@ class SingleMovie extends React.Component {
           <p>{detail.Director}</p>
           <p>{detail.Year}</p>
           <p>{detail.Plot}</p>
+        </div>
+        <div>
+          <Link to={`/`}>Go Back</Link>
         </div>
       </div>
     );
@@ -57,6 +77,7 @@ const mapDispatch = (dispatch) => {
     getMovieDetail: (id) => dispatch(fetchSingleMovie(id)),
     getVoteData: (title) => dispatch(fetchVote(title)),
     updateVote: (data) => dispatch(updateVote(data)),
+    clearState: () => dispatch(resetData()),
   };
 };
 

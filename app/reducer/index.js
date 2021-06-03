@@ -11,6 +11,7 @@ const SET_MOVIES = 'SET_MOVIES';
 const SET_SINGLE_MOVIE = 'SET_SINGLE_MOVIE';
 const SET_VOTE = 'SET_VOTE';
 const CHANGE_VOTE = 'CHANGE_VOTE';
+const RESET_MOVIE_DATA = 'RESET_MOVIE_DATA';
 
 const setMovies = (movies) => {
   return {
@@ -43,6 +44,12 @@ const changeVote = (updatedVote) => {
   return {
     type: CHANGE_VOTE,
     updatedVote,
+  };
+};
+
+const resetMovieData = () => {
+  return {
+    type: RESET_MOVIE_DATA,
   };
 };
 
@@ -91,10 +98,27 @@ export const storeInput = (input) => {
   };
 };
 
+export const resetData = () => {
+  return (dispatch) => {
+    try {
+      dispatch(resetMovieData());
+    } catch (error) {
+      console.log('Error in resetData thunk', error);
+    }
+  };
+};
+
 export const fetchVote = (title) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`/api/movies/${title}`);
+      let { data } = await axios.get(`/api/movies/${title}`);
+      if (!data) {
+        data = {
+          movieTitle: title,
+          thumsDown: 0,
+          thumsUp: 0,
+        };
+      }
       dispatch(setVote(data));
     } catch (error) {
       console.log('Error in fetchVote thunk', error);
@@ -132,6 +156,9 @@ const reducer = (
 
     case CHANGE_VOTE:
       return { ...state, vote: action.updatedVote };
+
+    case RESET_MOVIE_DATA:
+      return { ...state, movie: {}, vote: {} };
 
     default:
       return state;

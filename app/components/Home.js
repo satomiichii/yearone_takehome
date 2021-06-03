@@ -30,7 +30,6 @@ class Home extends React.Component {
   render() {
     return (
       <Router>
-        <div>React Home Component Rendered</div>
         <div>
           <Route exact path="/">
             <Search
