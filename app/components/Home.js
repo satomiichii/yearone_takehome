@@ -11,10 +11,17 @@ class Home extends React.Component {
     super(props);
     this.state = {
       input: this.props.input,
-      page: 1,
+      totalPages: 0,
+      currentPage: 1,
     };
+    this.handlePageChange = this.handlePageChange.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  async handlePageChange(event, value) {
+    await this.setState({ currentPage: value });
+    await this.props.getMovieList(this.state.input, this.state.currentPage);
   }
 
   handleUpdate(event) {
@@ -23,8 +30,11 @@ class Home extends React.Component {
 
   async handleSearch(event) {
     event.preventDefault();
+    await this.setState({ currentPage: 1 });
     await this.props.saveInput(this.state.input);
-    await this.props.getMovieList(this.state.input, this.state.page);
+    await this.props.getMovieList(this.state.input, this.state.currentPage);
+    const totalPages = Math.ceil(this.props.movies.totalResults / 10);
+    this.setState({ totalPages });
   }
 
   render() {
@@ -36,7 +46,11 @@ class Home extends React.Component {
               handleUpdate={this.handleUpdate}
               handleSearch={this.handleSearch}
             />
-            <MovieList />
+            <MovieList
+              totalPages={this.state.totalPages}
+              currentPage={this.state.currentPage}
+              handlePageChange={this.handlePageChange}
+            />
           </Route>
           <Route path="/movie/:id/:title" component={SingleMovie} />
         </div>

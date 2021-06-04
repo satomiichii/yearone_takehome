@@ -31,8 +31,10 @@ class SingleMovie extends React.Component {
     return (
       <div className="detail-container">
         <div className="single-image">
-          <img src={detail.Poster} />
-          <div>
+          <img
+            src={(detail.Poster !== 'N/A' && detail.Poster) || '/noimage.png'}
+          />
+          <div className="vote-container">
             <div>
               <button
                 name="thumsUp"
@@ -51,10 +53,12 @@ class SingleMovie extends React.Component {
             </div>
           </div>
         </div>
-        <div>
-          <p>{detail.Title}</p>
-          <p>{detail.Director}</p>
-          <p>{detail.Year}</p>
+        <div className="info-container">
+          <h1>
+            {detail.Title} <span className="year">({detail.Year})</span>
+          </h1>
+          <p>Director: {detail.Director}</p>
+          <p>Cast: {detail.Actors}</p>
           <p>{detail.Plot}</p>
         </div>
         <div>

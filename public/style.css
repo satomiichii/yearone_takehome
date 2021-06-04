@@ -3,9 +3,13 @@
 }
 
 .list-image {
-  height: 75px;
-  width: 75px;
+  margin: 0 10px 5px;
+  max-width: 50px;
   display: flex;
+}
+
+.list-image img {
+  width: 100%;
 }
 
 .detail-container {
@@ -17,4 +21,24 @@
   width: 200px;
   display: flex;
   flex-direction: column;
+}
+
+.vote-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.vote-container button {
+  margin-right: 5px;
+  line-height: 15px;
+}
+
+.info-container {
+  width: 600px;
+  margin-left: 20px;
+}
+
+.year {
+  font-size: 1.5rem;
 }
