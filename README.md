@@ -58,11 +58,11 @@ $ npm run start
 
 ## Technologies
 
-Javascript
-React
-Redux
-Node.js
-Express.js
-Sequelize
-PostgreSQL
-Material-UI
+- Javascript
+- React
+- Redux
+- Node.js
+- Express.js
+- Sequelize
+- PostgreSQL
+- Material-UI
