@@ -55,3 +55,14 @@ $ npm run start
 - In detail page, user can give thums up or thums down and the number of vote are stored in the database
 
   ![vote](https://github.com/satomiichii/yearone_takehome/blob/main/gifs/vote.gif)
+
+## Technologies
+
+Javascript
+React
+Redux
+Node.js
+Express.js
+Sequelize
+PostgreSQL
+Material-UI
