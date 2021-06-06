@@ -9,7 +9,7 @@ Movie Database API: https://rapidapi.com/rapidapi/api/movie-database-imdb-altern
 To run this app, download the project on your local computer and run the following script.
 
 ```
-$ cd project_name
+$ cd yearone_takehome
 $ npm install
 ```
 
