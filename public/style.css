@@ -24,6 +24,8 @@ h1 {
   margin: 20px 0;
 }
 
+/*-- Home Component --*/
+
 #contents {
   display: flex;
   flex-direction: column;
@@ -31,12 +33,7 @@ h1 {
   align-items: center;
 }
 
-#list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+/*-- Search Component --*/
 
 #search {
   margin: 5px 0 20px;
@@ -50,6 +47,23 @@ h1 {
   height: 36px;
   width: 50px;
 }
+
+/*-- MovieList Component --*/
+
+#list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 945px;
+}
+
 .title-container {
   margin: 0 10px;
   display: flex;
@@ -59,12 +73,6 @@ h1 {
   box-shadow: 1px 1px 1px rgb(184, 184, 184);
 }
 
-.list-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 945px;
-}
 .list-image {
   width: 55px;
   height: 84.7px;
@@ -81,6 +89,18 @@ h1 {
   flex-direction: row;
   align-items: center;
   font-size: 1.25rem;
+}
+
+.pagenation {
+  margin-top: 20px;
+}
+
+/*-- SingleMovie Component --*/
+
+.singleView-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .detail-container {
@@ -181,16 +201,6 @@ h1 {
   text-align: center;
 }
 
-.singleView-container {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-}
-
-.pagenation {
-  margin-top: 20px;
-}
-
 .goback {
   margin-top: 20px;
   display: flex;
@@ -216,8 +226,3 @@ p {
   border-radius: 3px;
   text-align: center;
 }
-
-/* #155263
-#5c636e 
-#2c786c
-#2994b2*/

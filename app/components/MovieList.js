@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 
 const MovieList = (props) => {
-  console.log(props);
   const { movies, handlePageChange, currentPage, totalPages } = props;
   return (
     <div>

@@ -13,21 +13,32 @@ class SingleMovie extends React.Component {
   }
 
   async handleVote(event) {
-    const type = event.target.name;
-    const dataBody = { ...this.props.vote };
-    dataBody[type] = dataBody[type] + 1;
-    console.log(dataBody);
-    await this.props.updateVote(dataBody);
+    try {
+      const type = event.target.name;
+      const dataBody = { ...this.props.vote };
+      dataBody[type] = dataBody[type] + 1;
+      await this.props.updateVote(dataBody);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async componentDidMount() {
-    await this.props.getMovieDetail(this.props.match.params.id);
-    await this.props.getVoteData(this.props.match.params.title);
-    this.setState({ loaded: true });
+    try {
+      await this.props.getMovieDetail(this.props.match.params.id);
+      await this.props.getVoteData(this.props.match.params.title);
+      this.setState({ loaded: true });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async componentWillUnmount() {
-    this.props.clearState();
+    try {
+      this.props.clearState();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   render() {
