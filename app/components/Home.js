@@ -40,8 +40,9 @@ class Home extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+        <div id="contents">
           <Route exact path="/">
+            <h1>Search Movies!</h1>
             <Search
               handleUpdate={this.handleUpdate}
               handleSearch={this.handleSearch}

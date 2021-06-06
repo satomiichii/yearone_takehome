@@ -2,10 +2,21 @@ import React from 'react';
 
 export const Search = (props) => {
   return (
-    <div>
+    <div id="search">
       <form>
-        <input type="text" name="input" onChange={props.handleUpdate} />
-        <input type="submit" value="Search" onClick={props.handleSearch} />
+        <input
+          type="text"
+          name="input"
+          placeholder="Movie title"
+          onChange={props.handleUpdate}
+        />
+        <button
+          value="Search"
+          className="search-button"
+          onClick={props.handleSearch}
+        >
+          <i className="fas fa-search"></i>
+        </button>
       </form>
     </div>
   );

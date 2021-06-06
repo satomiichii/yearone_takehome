@@ -1,10 +1,73 @@
-.title-container {
-  display: flex;
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(240, 240, 240);
+}
+input {
+  margin-right: 7px;
+  line-height: 23px;
+  width: 200px;
+  padding: 5px 10px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+span {
+  margin-left: 5px;
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+#contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#search {
+  margin: 5px 0 20px;
+}
+
+.search-button {
+  background-color: #ffb400;
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+  height: 36px;
+  width: 50px;
+}
+.title-container {
+  margin: 0 10px;
+  display: flex;
+  margin-top: 10px;
+  width: 450px;
+  background-color: white;
+  box-shadow: 1px 1px 1px rgb(184, 184, 184);
+}
+
+.list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 945px;
+}
 .list-image {
-  margin: 0 10px 5px;
-  max-width: 50px;
+  width: 55px;
+  height: 84.7px;
   display: flex;
 }
 
@@ -12,33 +75,149 @@
   width: 100%;
 }
 
+.list-title {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
 .detail-container {
   display: flex;
+  flex-direction: row;
+  background-color: white;
+  box-shadow: 1px 1px 10px rgb(184, 184, 184);
+}
+
+.image-vote-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #5c636e;
 }
 
 .single-image {
-  height: 200px;
-  width: 200px;
-  display: flex;
-  flex-direction: column;
+  width: 275px;
+}
+
+.single-image img {
+  width: 100%;
+  height: auto;
 }
 
 .vote-container {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 10px;
+  margin: 5px 5px 20px;
+  color: White;
+  font-size: 1.2rem;
 }
 
 .vote-container button {
-  margin-right: 5px;
+  width: 32px;
+  height: 32px;
+  margin: 5px 8px 0 0;
   line-height: 15px;
+  background-color: white;
+  font-size: 1.25rem;
+  border-radius: 100%;
+  border: none;
+  color: #5c636e;
+  cursor: pointer;
+}
+.vote-container button:hover {
+  color: rgb(155, 155, 155);
 }
 
 .info-container {
-  width: 600px;
-  margin-left: 20px;
+  width: 800px;
+  margin-left: 35px;
+}
+
+.info-container span {
+  margin-left: 15px;
 }
 
 .year {
   font-size: 1.5rem;
 }
+
+.rate {
+  font-size: 1rem;
+}
+
+.G {
+  width: 30px;
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+.PG {
+  width: 40px;
+  background-color: rgb(240, 176, 59);
+  color: white;
+  text-align: center;
+}
+
+.PG-13 {
+  width: 55px;
+  background-color: rgb(110, 63, 170);
+  color: white;
+  text-align: center;
+}
+
+.R {
+  width: 30px;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.NC-17 {
+  width: 55px;
+  background-color: rgb(192, 0, 0);
+  color: white;
+  text-align: center;
+}
+
+.singleView-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pagenation {
+  margin-top: 20px;
+}
+
+.goback {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+p {
+  margin: 10px 0 20px;
+}
+
+.label {
+  width: 80px;
+  height: 20px;
+  background-color: #eca500;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  border-radius: 3px;
+  text-align: center;
+}
+
+/* #155263
+#5c636e 
+#2c786c
+#2994b2*/

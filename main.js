@@ -3,7 +3,7 @@
 const { db } = require('./server/db');
 const app = require('./server');
 const chalk = require('chalk');
-const PORT = 8080;
+const PORT = 8000;
 
 db.sync().then(() => {
   console.log('db synced');
