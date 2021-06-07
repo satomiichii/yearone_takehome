@@ -52,7 +52,7 @@ $ npm run start
 
   ![singleView](https://github.com/satomiichii/yearone_takehome/blob/main/public/gifs/singleView.gif)
 
-- In detail page, user can give thums up or thums down and the number of vote are stored in the database
+- In the detail page, user can give thums up or thums down and the number of vote are stored in the database
 
   ![vote](https://github.com/satomiichii/yearone_takehome/blob/main/public/gifs/vote.gif)
 
