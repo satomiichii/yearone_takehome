@@ -19,7 +19,7 @@ Create a new file named '.env' under the root directory.
 $ touch .env
 ```
 
-Add API Key to .env file. \*You can get the API key by registering with the RapidAPI(link is in About this App section)
+Add API Key to .env file. \*You can get the API key by registering with the RapidAPI(link is in About this App section).
 
 ```
 REACT_APP_API_KEY=YOUR_API_KEY_HERE
@@ -44,7 +44,7 @@ $ npm run start
 
   ![search](https://github.com/satomiichii/yearone_takehome/blob/main/public/gifs/search.gif)
 
-- User can switch pages
+- User can switch pages.
 
   ![switch-page](https://github.com/satomiichii/yearone_takehome/blob/main/public/gifs/switch-page.gif)
 
@@ -52,7 +52,7 @@ $ npm run start
 
   ![singleView](https://github.com/satomiichii/yearone_takehome/blob/main/public/gifs/singleView.gif)
 
-- In the detail page, user can give the movie thums up or thums down and the number of vote are stored in the database
+- In the detail page, user can give the movie thums up or thums down and the number of vote are stored in the database.
 
   ![vote](https://github.com/satomiichii/yearone_takehome/blob/main/public/gifs/vote.gif)
 
