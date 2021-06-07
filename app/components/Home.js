@@ -20,8 +20,12 @@ class Home extends React.Component {
   }
 
   async handlePageChange(event, value) {
-    await this.setState({ currentPage: value });
-    await this.props.getMovieList(this.state.input, this.state.currentPage);
+    try {
+      await this.setState({ currentPage: value });
+      await this.props.getMovieList(this.state.input, this.state.currentPage);
+    } catch (error) {
+      console.log('handlePageChange error: ', error);
+    }
   }
 
   handleUpdate(event) {
@@ -29,12 +33,16 @@ class Home extends React.Component {
   }
 
   async handleSearch(event) {
-    event.preventDefault();
-    await this.setState({ currentPage: 1 });
-    await this.props.saveInput(this.state.input);
-    await this.props.getMovieList(this.state.input, this.state.currentPage);
-    const totalPages = Math.ceil(this.props.movies.totalResults / 10);
-    this.setState({ totalPages });
+    try {
+      event.preventDefault();
+      await this.setState({ currentPage: 1 });
+      await this.props.saveInput(this.state.input);
+      await this.props.getMovieList(this.state.input, this.state.currentPage);
+      const totalPages = Math.ceil(this.props.movies.totalResults / 10);
+      this.setState({ totalPages });
+    } catch (error) {
+      console.log('handleSearch error: ', error);
+    }
   }
 
   render() {

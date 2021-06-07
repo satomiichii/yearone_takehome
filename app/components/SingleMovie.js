@@ -19,7 +19,7 @@ class SingleMovie extends React.Component {
       dataBody[type] = dataBody[type] + 1;
       await this.props.updateVote(dataBody);
     } catch (error) {
-      console.log(error);
+      console.log('handleVote error: ', error);
     }
   }
 
@@ -29,7 +29,7 @@ class SingleMovie extends React.Component {
       await this.props.getVoteData(this.props.match.params.title);
       this.setState({ loaded: true });
     } catch (error) {
-      console.log(error);
+      console.log('componentDidMount error: ', error);
     }
   }
 
@@ -37,7 +37,7 @@ class SingleMovie extends React.Component {
     try {
       this.props.clearState();
     } catch (error) {
-      console.log(error);
+      console.log('componentWillUnmount error: ', error);
     }
   }
 
