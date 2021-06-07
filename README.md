@@ -40,7 +40,7 @@ $ npm run start
 
 ## Features
 
-- User can search movie title and see the list of the titles that includes the user input
+- User can search movie title and see the result as a list.
 
   ![search](https://github.com/satomiichii/yearone_takehome/blob/main/public/gifs/search.gif)
 
@@ -48,11 +48,11 @@ $ npm run start
 
   ![switch-page](https://github.com/satomiichii/yearone_takehome/blob/main/public/gifs/switch-page.gif)
 
-- User can see the detail information about a movie by clicking the list title on the list page
+- User can see the detail information by clicking the movie title.
 
   ![singleView](https://github.com/satomiichii/yearone_takehome/blob/main/public/gifs/singleView.gif)
 
-- In the detail page, user can give thums up or thums down and the number of vote are stored in the database
+- In the detail page, user can give the movie thums up or thums down and the number of vote are stored in the database
 
   ![vote](https://github.com/satomiichii/yearone_takehome/blob/main/public/gifs/vote.gif)
 
